@@ -43,10 +43,10 @@ const Onboading = () => {
           // ...
         ]}
         onSkip={() => {
-          navigation.navigate("Auth");
+          navigation.navigate("Register");
         }}
         onDone={() => {
-          navigation.navigate("Auth");
+          navigation.navigate("Register");
         }}
       />
     </View>

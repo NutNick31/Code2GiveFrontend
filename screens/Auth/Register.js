@@ -13,15 +13,6 @@ import { useNavigation } from "@react-navigation/native";
 import CustomeDropDown from "../../components/CustomeDropDown";
 import axios from "axios";
 
-const data1 = [
-  { key: "1", value: "Punjab" },
-  { key: "2", value: "Kerala" },
-  { key: "3", value: "New Delhi" },
-  { key: "4", value: "Mumbai" },
-  { key: "5", value: "Kolkata" },
-  { key: "6", value: "Chennai" },
-  { key: "7", value: "Haryana" },
-];
 // const data2 = [
 //   { key: "1", value: "IIT Kharagpur" },
 //   { key: "2", value: "IIT Madras" },
@@ -38,23 +29,29 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [location, setLocation] = useState({});
 
   const handleSubmit = async () => {
     try {
-      // const {username, email, password, location, college} = user;
+      // const {username, email, password} = user;
       // console.log({username, email, password, location, college})
       // const body = JSON.stringify(user)
-      setUser({username, email, password, location, college});
-      console.log(user);
-      const res = await axios.post("http://192.168.137.1:8000/api/auth/register", user);
+      // setUser(JSON.stringify({ username, email, password }));
+      setUser({ username, email, password });
+      console.log(`1`);
+      const res = await axios.post(
+        "http://192.168.1.6:8000/api/auth/register/",
+        user
+      );
+      // const res = await axios.get("api/mlalgo");
+      // console.log(res.data);
       if (res.data.success) {
         console.log(res.data.user);
-        navigation.navigate("Home");
+        navigation.navigate("Login");
       } else {
         alert(res.data.message);
       }
     } catch (error) {
+      alert(error);
       console.log(error);
     }
   };
@@ -68,7 +65,7 @@ const Register = () => {
         value={username}
         onChangeText={(text) => {
           setUsername(text);
-          console.log(username)
+          console.log(username);
         }}
       />
       <TextInput
@@ -77,7 +74,7 @@ const Register = () => {
         value={email}
         onChangeText={(text) => {
           setEmail(text);
-          console.log(email)
+          console.log(email);
         }}
       />
       <TextInput
@@ -86,7 +83,7 @@ const Register = () => {
         value={password}
         onChangeText={(text) => {
           setPassword(text);
-          console.log(password)
+          console.log(password);
         }}
       />
       {/* <CustomeDropDown
@@ -95,8 +92,11 @@ const Register = () => {
         data={data1}
         string={"Your Location"}
       /> */}
-      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Location')}}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text>Let's Go</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+        <Text>Already Registered? Login</Text>
       </TouchableOpacity>
     </View>
   );

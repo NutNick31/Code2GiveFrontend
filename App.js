@@ -5,6 +5,8 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 const Stack = createStackNavigator();
 import Onboarding from "./screens/Onboarding/Onboading";
 import Auth from "./screens/Auth/Auth";
+import Register from "./screens/Auth/Register";
+import Login from "./screens/Auth/Login";
 import Home from "./screens/App/Home";
 import CounsellingForm from "./screens/App/CounsellingForm";
 import Chatbot from "./screens/App/Chatbot";
@@ -21,6 +23,8 @@ export default function App() {
       >
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Auth" component={Auth} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="CounsellingForm" component={CounsellingForm} />
         <Stack.Screen name="Chatbot" component={Chatbot} />

@@ -1,15 +1,139 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
+import React, { useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
+import axios from "axios";
 
 const CounsellingForm = () => {
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    const getUser = async () => {
+      const user = await AsyncStorage.getItem("user");
+      setUser(JSON.parse(user));
+    };
+    getUser();
+  }, []);
+  const [registerUser, setRegisterUser] = useState({});
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [location, setLocation] = useState("");
+  const [college, setCollege] = useState("");
+  const [age, setAge] = useState(0);
+  const [visibleText, setVisibleText] = useState("");
+  const [visible, setVisible] = useState(false);
+  const handleSubmit = async () => {
+    try {
+      const data = {
+        user: user._id,
+        name,
+        email,
+        location,
+        college,
+        age,
+      };
+      console.log("12");
+      const response = await axios.post(
+        "http://192.168.1.6:8000/api/counselling",
+        data
+      );
+      if (response.data.success) {
+        setVisible(true);
+        setVisibleText(
+          "Your counselling form has been submitted successfully, you will be contacted soon"
+        );
+        setName("");
+        setEmail("");
+        setLocation("");
+        setCollege("");
+        setAge(0);
+      } else {
+        setVisible(true);
+        setVisibleText(
+          "Your counselling form has not been submitted successfully, please try again"
+        );
+      }
+      console.log(response.data);
+    } catch (error) {
+      console.log("22");
+      console.log(error);
+    }
+  };
   return (
     <View style={styles.container}>
-      <Text>CounsellingForm</Text>
+      <Text style={{ fontSize: 28, fontWeight: 500 }}>Counselling Form</Text>
+      <View style={styles.formSection}>
+        <Text>Name</Text>
+        <TextInput
+          placeholder="Enter your name"
+          value={name}
+          onChangeText={(text) => {
+            setName(text);
+            console.log(name);
+          }}
+        />
+      </View>
+      <View style={styles.formSection}>
+        <Text>Email</Text>
+        <TextInput
+          placeholder="Enter your email"
+          value={email}
+          onChangeText={(text) => {
+            setEmail(text);
+            console.log(email);
+          }}
+        />
+      </View>
+      <View style={styles.formSection}>
+        <Text>Location</Text>
+        <TextInput
+          placeholder="Enter your location"
+          value={location}
+          onChangeText={(text) => {
+            setLocation(text);
+            console.log(location);
+          }}
+        />
+      </View>
+      <View style={styles.formSection}>
+        <Text>College</Text>
+        <TextInput
+          placeholder="Enter your college"
+          value={college}
+          onChangeText={(text) => {
+            setCollege(text);
+            console.log(college);
+          }}
+        />
+      </View>
+      <View style={styles.formSection}>
+        <Text>Age</Text>
+        <TextInput
+          keyboardType="numeric"
+          placeholder="Enter your age"
+          value={age}
+          onChangeText={(text) => {
+            setAge(text);
+            console.log(age);
+          }}
+        />
+      </View>
+      <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+        <Text>Submit</Text>
+      </TouchableOpacity>
+      <View style={{width: 0.6*width, alignItems: 'center'}}>{visible && <Text>{visibleText}</Text>}</View>
     </View>
-  )
-}
+  );
+};
 
-export default CounsellingForm
+export default CounsellingForm;
 
 const styles = StyleSheet.create({
   container: {
@@ -17,5 +141,28 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "lightblue",
   },
-})
+  formSection: {
+    // borderWidth: 1,
+    width: 0.8 * width,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginVertical: 10,
+    height: 0.05 * height,
+    alignItems: "center",
+    borderRadius: 10,
+    backgroundColor: "#FCE9F1",
+    elevation: 10,
+  },
+  submitButton: {
+    backgroundColor: "lightyellow",
+    marginVertical: 10,
+    borderRadius: 10,
+    height: 0.05 * height,
+    width: 0.5 * width,
+    alignItems: "center",
+    padding: 10,
+    elevation: 10,
+  },
+});

@@ -11,6 +11,7 @@ const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -20,13 +21,15 @@ const Login = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post("http://127.0.0.1:8000/login/", {
+      const res = await axios.post("http://192.168.1.6:8000/api/auth/login/", {
         username,
         password,
       });
+    console.log(res.data)
       if (res.data.success) {
         console.log(res.data.user);
-        navigation.navigate("Home");
+        await AsyncStorage.setItem("user", JSON.stringify(res.data.user));
+        navigation.navigate("Location");
       } else {
         alert(res.data.message);
       }
@@ -50,8 +53,11 @@ const Login = () => {
         value={password}
         onChangeText={(text) => setPassword(text)}
       />
-      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Location')}}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text>Let's Go</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+        <Text>Don't have an account? Register</Text>
       </TouchableOpacity>
     </View>
   );

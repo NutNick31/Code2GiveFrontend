@@ -47,7 +47,7 @@ const Home = () => {
             }}
             style={styles.button}
           >
-            <Text>Talk to our chatbot</Text>
+            <Text>Useful Blogs</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
