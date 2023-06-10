@@ -140,7 +140,7 @@ const CounsellingForm = () => {
           <Text>Phone Number</Text>
           <TextInput
             keyboardType="numeric"
-            placeholder="Enter your phonr number"
+            placeholder="Enter your phone number"
             value={number}
             onChangeText={(text) => {
               setNumber(text);
