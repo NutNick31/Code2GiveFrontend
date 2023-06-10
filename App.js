@@ -32,7 +32,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="AddictionChoice"
+        initialRouteName="chat"
       >
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Auth" component={Auth} />
