@@ -52,10 +52,10 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: 'lightblue'
+    backgroundColor: '#E15717'
   },
   info: {
     flexDirection: "row",
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   logoutButton: {
-    backgroundColor: "lightyellow",
+    backgroundColor: "lightblue",
     marginVertical: 10,
     borderRadius: 10,
     height: 0.05*height,

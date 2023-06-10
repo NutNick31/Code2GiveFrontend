@@ -1,10 +1,10 @@
 const InitialQuestionsList = [
-    {
-        id: '1',
-        question: 'Which game do you play regularly/feel addicted to?',
-        question_options: '',
-        question_type: 'text',
-    },
+    // {
+    //     id: '1',
+    //     question: 'Which game do you play regularly/feel addicted to?',
+    //     question_options: '',
+    //     question_type: 'text',
+    // },
     {
         id: '2',
         question: 'Do you find it difficult to stop playing video games once you start?',
@@ -38,7 +38,7 @@ const InitialQuestionsList = [
     {
         id: '7',
         question: 'Do you feel preoccupied with thoughts about gaming when you are not playing?',
-        question_options: '',
+        question_options: 'No, Yes',
         question_type: 'mcq',
     },
     {

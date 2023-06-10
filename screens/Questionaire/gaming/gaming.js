@@ -14,6 +14,7 @@ import {
   const width = Dimensions.get("window").width;
   const height = Dimensions.get("window").height;
   import InitialQuestionsList from "./questions";
+  import axios from 'axios'
   
   var answerList = [
     0,
@@ -30,15 +31,28 @@ import {
   const Quiz = () => {
     const navigation = useNavigation();
     const [checked, setChecked] = useState(false);
-    const [selectedAnswer, setSelectedAnswer] = useState("");
+    const [selectedAnswer, setSelectedAnswer] = useState(0);
     // const [answerList, setAnswerList] = ([]);
     const [questionNumber, setQuestionNumber] = useState(0);
     const [questionList, setQuestionList] = useState(InitialQuestionsList);
     const questionOptions =
       questionList[questionNumber].question_options.split(",");
     // console.log(answerList.length);
+    const handleSubmit = async () => {
+      if (questionNumber + 1 === questionList.length) {
+        const res = await axios.post("http://192.168.0.101:8000/api/mlAlgo/", {type: "gaming", data: answerList})
+        console.log(res.data.message)
+        navigation.navigate("Results", { result: res.data.message });
+        console.log(answerList);
+      } else {
+        if(questionList[questionNumber].question_type==='mcq')answerList[questionNumber] = selectedAnswer;
+        setSelectedAnswer(0)
+        console.log(answerList);
+        setQuestionNumber(questionNumber + 1);
+      }
+    }
     return (
-      <SafeAreaView style={{flex: 1,}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: 'lightgray'}}>
         <View
           style={{
             // borderWidth: 1,
@@ -54,9 +68,9 @@ import {
           <Text style={{ fontSize: 25, fontWeight: 500, fontFamily: "" }}>
             {questionList[questionNumber].question}
           </Text>
-          <Text style={{ fontSize: 20, fontWeight: 500, fontFamily: "" }}>
+          {/* <Text style={{ fontSize: 20, fontWeight: 500, fontFamily: "" }}>
             Question No. {questionNumber + 1}
-          </Text>
+          </Text> */}
         </View>
         <View
           style={{
@@ -67,7 +81,7 @@ import {
             // backgroundColor: "lightgray",
           }}
         >
-          <Text>Answer</Text>
+          {/* <Text>Answer</Text> */}
           <View>
             {questionList[questionNumber].question_type === "mcq" ? (
               questionOptions.map((item, i) => {
@@ -91,7 +105,7 @@ import {
                       style={{
                         height: 20,
                         width: 20,
-                        borderColor: "#6D48FF",
+                        borderColor: "#D15715",
                         borderRightWidth: 2,
                         borderBottomWidth: 2,
                         borderLeftWidth: 2,
@@ -106,7 +120,7 @@ import {
                         style={{
                           height: 14,
                           width: 14,
-                          backgroundColor: "#6D48FF",
+                          backgroundColor: "#D15715",
                           borderRadius: 40,
                         }}
                       ></View>
@@ -141,7 +155,7 @@ import {
                       style={{
                         height: 20,
                         width: 20,
-                        borderColor: "#6D48FF",
+                        borderColor: "#D15715",
                         borderRightWidth: 2,
                         borderBottomWidth: 2,
                         borderLeftWidth: 2,
@@ -191,20 +205,21 @@ import {
               elevation: 10,
               borderRadius: 10,
             }}
-            onPress={() => {
-              if (questionNumber + 1 === questionList.length) {
-                navigation.navigate("Home");
-                console.log(answerList);
-              } else {
-                // setAnswerList(answerList[questionNumber] = selectedAnswer);
-                // answerList, setAnswerList
-                // setAnswerList([...answerList, selectedAnswer]);
-                if(questionList[questionNumber].question_type==='mcq') answerList[questionNumber] = selectedAnswer;
-                setSelectedAnswer("")
-                console.log(answerList);
-                setQuestionNumber(questionNumber + 1);
-              }
-            }}
+            onPress={handleSubmit}
+            // onPress={() => {
+            //   if (questionNumber + 1 === questionList.length) {
+            //     navigation.navigate("Home");
+            //     console.log(answerList);
+            //   } else {
+            //     // setAnswerList(answerList[questionNumber] = selectedAnswer);
+            //     // answerList, setAnswerList
+            //     // setAnswerList([...answerList, selectedAnswer]);
+            //     if(questionList[questionNumber].question_type==='mcq') answerList[questionNumber] = selectedAnswer;
+            //     setSelectedAnswer("")
+            //     console.log(answerList);
+            //     setQuestionNumber(questionNumber + 1);
+            //   }
+            // }}
           >
             <Text style={{ fontSize: 20 }}>
               {questionNumber + 1 === questionList.length ? "Submit" : "Next"}

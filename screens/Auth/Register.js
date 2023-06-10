@@ -12,6 +12,7 @@ const height = Dimensions.get("window").height;
 import { useNavigation } from "@react-navigation/native";
 import CustomeDropDown from "../../components/CustomeDropDown";
 import axios from "axios";
+import { FontAwesome } from '@expo/vector-icons'; 
 
 // const data2 = [
 //   { key: "1", value: "IIT Kharagpur" },
@@ -39,7 +40,7 @@ const Register = () => {
       setUser({ username, email, password });
       console.log(`1`);
       const res = await axios.post(
-        "http://192.168.1.6:8000/api/auth/register/",
+        "http://192.168.0.101:8000/api/auth/register/",
         user
       );
       // const res = await axios.get("api/mlalgo");
@@ -93,9 +94,10 @@ const Register = () => {
         string={"Your Location"}
       /> */}
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text>Let's Go</Text>
+        <Text style={{marginHorizontal: width*0.02}}>Let's Go</Text>
+        <FontAwesome name="registered" size={24} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+      <TouchableOpacity style={{marginVertical: height*0.02}} onPress={() => navigation.navigate("Login")}>
         <Text>Already Registered? Login</Text>
       </TouchableOpacity>
     </View>
@@ -107,23 +109,28 @@ export default Register;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#E15715",
     alignItems: "center",
     justifyContent: "center",
   },
   input: {
-    borderWidth: 1,
+    // borderWidth: 1,
     width: 0.8 * width,
     marginVertical: 0.01 * height,
     padding: 0.01 * height,
     borderRadius: 10,
+    backgroundColor: "#fff",
+    elevation: 10,
   },
   button: {
     backgroundColor: "lightblue",
     width: 0.8 * width,
     alignItems: "center",
-    paddingVertical: 0.01 * height,
+    paddingVertical: 0.015 * height,
     marginVertical: 0.01 * height,
     borderRadius: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

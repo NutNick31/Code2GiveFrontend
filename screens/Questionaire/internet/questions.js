@@ -1,10 +1,10 @@
 const InitialQuestionsList = [
-    {
-        id: '1',
-        question: 'Which social media app do you use frequently/feel addicted to?',
-        question_options: '',
-        question_type: 'text',
-    },
+    // {
+    //     id: '1',
+    //     question: 'Which social media app do you use frequently/feel addicted to?',
+    //     question_options: '',
+    //     question_type: 'text',
+    // },
     {
         id: '2',
         question: 'How much time do you spend online each day?',

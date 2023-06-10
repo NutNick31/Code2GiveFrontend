@@ -2,7 +2,7 @@ const InitialQuestionsList = [
     {
         id: '1',
         question: 'Are you filling this form for yourself? Or on behalf of someone else?',
-        question_options: 'For myself, On behalf of someone else',
+        question_options: 'For myself, Sibling, Friend, Other',
         question_type: 'mcq',
     },
     {
@@ -20,7 +20,7 @@ const InitialQuestionsList = [
     {
         id: '4',
         question: 'What is your gender?',
-        question_options: 'Male, Female',
+        question_options: 'Male, Female, Others',
         question_type: 'mcq',
     },
     {

@@ -23,13 +23,16 @@ import internet from "./screens/Questionaire/internet/internet";
 import pornography from "./screens/Questionaire/pornography/pornography";
 import suicidal from "./screens/Questionaire/suicidal/suicidal";
 import Results from "./screens/Results/Results";
+import Chat from './screens/Chat/index'
+import TermsAndCondition from "./screens/App/TermsAndCondition";
+import Blog from "./screens/App/Blog"
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="Onboarding"
+        initialRouteName="AddictionChoice"
       >
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Auth" component={Auth} />
@@ -51,6 +54,9 @@ export default function App() {
         <Stack.Screen name="Pornography" component={pornography} />
         <Stack.Screen name="Suicidal" component={suicidal} />
         <Stack.Screen name="Results" component={Results} />
+        <Stack.Screen name="chat" component={Chat} />
+        <Stack.Screen name="tnc" component={TermsAndCondition} />
+        <Stack.Screen name="blog" component={Blog} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,10 +1,10 @@
 const InitialQuestionsList = [
-    {
-        id: '1',
-        question: 'Which type of gambling do you do?',
-        question_options: '',
-        question_type: 'text',
-    },
+    // {
+        // id: '1',
+        // question: 'Which type of gambling do you do?',
+        // question_options: '',
+        // question_type: 'text',
+    // },
     {
         id: '2',
         question: 'Do you often think about gambling, such as planning future gambling activities or reminiscing about past gambling experiences?',

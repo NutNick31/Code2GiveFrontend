@@ -25,17 +25,17 @@ const Onboading = () => {
       <Onboarding
         pages={[
           {
-            backgroundColor: "#fff",
+            backgroundColor: "#D15715",
             title: "BREADS Bangalore",
             subtitle: "Welcome to our application",
           },
           {
-            backgroundColor: "#fff",
+            backgroundColor: "#D15715",
             title: "BREADS Bangalore",
             subtitle: "If you can think it, you are half the way",
           },
           {
-            backgroundColor: "#fff",
+            backgroundColor: "#D15715",
             title: "BREADS Bangalore",
             subtitle:
               "You are stronger than you think, you have the power to change your life.",

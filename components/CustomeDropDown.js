@@ -18,11 +18,13 @@ const CustomeDropDown = ({ value, setValue, data, string }) => {
     <Pressable
       style={{
         width: 0.8 * width,
-        borderWidth: 1,
+        // borderWidth: 1,
         borderRadius: 10,
         marginVertical: 0.01 * height,
         padding: 0.01 * height,
         alignItems: "center",
+        backgroundColor: "#fff",
+        elevation: 10,
         // height: 0.1*height
       }}
       onPress={() => {

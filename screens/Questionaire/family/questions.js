@@ -1,10 +1,10 @@
 const InitialQuestionsList = [
-    {
-        id: '1',
-        question: 'What kind of family issues do you face?',
-        question_options: '',
-        question_type: 'text',
-    },
+    // {
+        // id: '1',
+        // question: 'What kind of family issues do you face?',
+        // question_options: '',
+        // question_type: 'text',
+    // },
     {
         id: '2',
         question: 'Are there frequent conflicts or arguments among family members?',
