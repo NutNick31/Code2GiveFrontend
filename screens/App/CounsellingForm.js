@@ -45,7 +45,7 @@ const CounsellingForm = () => {
       };
       console.log("12");
       const response = await axios.post(
-        "http://192.168.0.105:8000/api/counselling",
+        "http://192.168.1.17:8000/api/counselling",
         data
       );
       if (response.data.success) {

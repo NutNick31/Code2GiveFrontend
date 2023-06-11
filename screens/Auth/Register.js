@@ -33,15 +33,15 @@ const Register = () => {
 
   const handleSubmit = async () => {
     try {
-      const {username, email, password} = user;
-      console.log({username, email, password, location, college})
-      const body = JSON.stringify(user)
-      setUser(JSON.stringify({ username, email, password }));
+      // const {username, email, password} = user;
+      // console.log({username, email, password, location, college})
+      // const body = JSON.stringify(user)
+      // setUser(JSON.stringify({ username, email, password }));
       setUser({ username, email, password });
       console.log(`1`);
       const res = await axios.post(
-        "http://192.168.0.105:8000/api/auth/register/",
-        user
+        "http://192.168.1.17:8000/api/auth/register/",
+        user,
       );
       // const res = await axios.get("api/mlalgo");
       // console.log(res.data);

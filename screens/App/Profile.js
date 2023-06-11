@@ -17,8 +17,8 @@ const Profile = () => {
   }, []);
 
   const handleLogout = async () => {
-    // await AsyncStorage.removeItem("user");
-    // setUser({})
+    await AsyncStorage.removeItem("user");
+    setUser({})
     navigation.navigate("Login");
   }
   return (
@@ -26,13 +26,13 @@ const Profile = () => {
       <Text style={{fontSize: 28, fontWeight: 500}}>Profile</Text>
       <View style={styles.info}>
         <Text>Username</Text>
-        {/* <Text>{user.username}</Text> */}
-        <Text>BREADS</Text>
+        <Text>{user.username}</Text>
+        {/* <Text>BREADS</Text> */}
       </View>
       <View style={styles.info}>
         <Text>Email</Text>
-        {/* <Text>{user.email}</Text> */}
-        <Text>BREADS@morganstanely.com</Text>
+        <Text>{user.email}</Text>
+        {/* <Text>BREADS@morganstanely.com</Text> */}
       </View>
       <View style={styles.info}>
         <Text>Location</Text>

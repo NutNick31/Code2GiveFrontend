@@ -34,6 +34,9 @@ const CustomeDropDown = ({ value, setValue, data, string }) => {
       <Text>{value ? value : string}</Text>
       {clicked ? (
         <Modal style={{}}>
+          <View style={{alignItems: 'center', marginTop: 10,}}>
+          <Text style={{fontSize: 20, fontWeight: 500}}>Let us help you with...</Text>
+          </View>
           <FlatList
             data={data}
             renderItem={({ item, index }) => {

@@ -52,7 +52,7 @@ const Quiz = () => {
   const handlePress = async () => {
     if (questionNumber + 1 === questionList.length) {
       const username = user.username
-      const res = await axios.post("http://192.168.0.105:8000/api/qna/createquestionanswer", {username, answers: answerList})
+      const res = await axios.post("http://192.168.1.17:8000/api/qna/createquestionanswer", {username, answers: answerList})
       console.log(res.data)
       navigation.navigate("AddictionChoice");
       console.log(answerList);
@@ -258,7 +258,7 @@ const Quiz = () => {
             <Text style={{ fontSize: 20 }}>Previous</Text>
           </TouchableOpacity>
         )}
-        <TouchableOpacity
+        {/* <TouchableOpacity
             style={{
               backgroundColor: "lightblue",
               width: 0.8 * width,
@@ -273,7 +273,7 @@ const Quiz = () => {
             }}
           >
             <Text style={{ fontSize: 20 }}>Skip to End</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
       </View>
     </SafeAreaView>
   );

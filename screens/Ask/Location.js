@@ -46,14 +46,14 @@ const UserLocation = () => {
       const user1 = await AsyncStorage.getItem("user");
       setUser(JSON.parse(user1));
       console.log(user);
-      const userid = user.name;
+      const userid = user.username;
       const latitude = mapLocation.latitude;
       const longitude = mapLocation.longitude;
       console.log(mapLocation);
       const data = { userid, latitude, longitude, college };
       console.log(data);
       const res = await axios.post(
-        "http://192.168.0.105:8000/api/location/registerlocation/",
+        "http://192.168.1.17:8000/api/location/registerlocation/",
         data
       );
       console.log("response", res.data);

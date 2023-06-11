@@ -9,12 +9,13 @@ import {
     Button,
     TextInput,
   } from "react-native";
-  import React, { useState } from "react";
+  import React, { useState, useEffect } from "react";
   import { useNavigation } from "@react-navigation/native";
   const width = Dimensions.get("window").width;
   const height = Dimensions.get("window").height;
   import InitialQuestionsList from "./questions";
   import axios from 'axios'
+import AsyncStorage from "@react-native-async-storage/async-storage";
   
   var answerList = [
     0,
@@ -37,11 +38,25 @@ import {
     const [questionList, setQuestionList] = useState(InitialQuestionsList);
     const questionOptions =
       questionList[questionNumber].question_options.split(",");
+      const [user, setUser] = useState({});
+      useEffect(() => {
+        const getUser = async () => {
+          const user = await AsyncStorage.getItem("user");
+          setUser(JSON.parse(user));
+        };
+        getUser();
+      }, []);
     // console.log(answerList.length);
     const handleSubmit = async () => {
       if (questionNumber + 1 === questionList.length) {
-        const res = await axios.post("http://192.168.0.101:8000/api/mlAlgo/", {type: "gaming", data: answerList})
+        const res = await axios.post("http://192.168.1.17:8000/api/mlAlgo/", {type: "gaming", data: answerList})
         console.log(res.data.message)
+        const username = user.username;
+      console.log(username);
+      const res2 = await axios.post("http://192.168.1.17:8000/api/addiction/", {
+        username,
+        result: res.data.message,
+      });
         navigation.navigate("Results", { result: res.data.message });
         // navigation.navigate("Results", { result: "Sample Result" });
         console.log(answerList);
