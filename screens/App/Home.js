@@ -21,17 +21,20 @@ const data = [
   {
     id: 1,
     src: { uri: "../assets/images/BREADS1.jpg" },
-    story: "Kotresh is a young boy from the Davangere district of Karnataka. His family and village were severely affected by the droughts specific to the area, which destroyed all of their livelihood options."
+    story:
+      "Kotresh is a young boy from the Davangere district of Karnataka. His family and village were severely affected by the droughts specific to the area, which destroyed all of their livelihood options.",
   },
   {
     id: 2,
     src: { uri: "../assets/images/BREADS1.jpg" },
-    story: "Eramma, a motivated 15-year-old girl, comes from Dhonambali at Deodurga, Raichur, where the malaise of high dropout rates, child marriage and devadasi still persist. She is the president of the Child Rights Club formed under the CREAM project in the local public high school."
+    story:
+      "Eramma, a motivated 15-year-old girl, comes from Dhonambali at Deodurga, Raichur, where the malaise of high dropout rates, child marriage and devadasi still persist. She is the president of the Child Rights Club formed under the CREAM project in the local public high school.",
   },
   {
     id: 3,
     src: { uri: "../assets/images/BREADS1.jpg" },
-    story: "Yasmeen was born in a poor family in the village of Martur. She is the eldest in the family and has four younger siblings. The financial and poor economic conditions at home forced her to stop going to school at an early stage though she aimed and dreamed of pursuing higher education."
+    story:
+      "Yasmeen was born in a poor family in the village of Martur. She is the eldest in the family and has four younger siblings. The financial and poor economic conditions at home forced her to stop going to school at an early stage though she aimed and dreamed of pursuing higher education.",
   },
 ];
 
@@ -93,9 +96,12 @@ const Home = () => {
             >
               <Text style={{ fontWeight: 400, fontSize: 17 }}>Profile</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.button}>
+              <Text style={{ fontWeight: 400, fontSize: 17 }}>Admin Panel</Text>
+            </TouchableOpacity>
           </View>
-          <View style={{ alignItems: 'center' }}>
-            <Text style={{ fontSize: 30, fontWeight: 500, }}>
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ fontSize: 30, fontWeight: 500 }}>
               Our Acheivements
             </Text>
           </View>
@@ -122,7 +128,7 @@ const styles = StyleSheet.create({
     // paddingVertical: 30,
   },
   scrollViewStyle: {
-    height: height*0.62,
+    height: height * 0.62,
     // alignItems: 'center'
     // marginBottom: 20,
   },
