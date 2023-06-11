@@ -45,14 +45,12 @@ const CounsellingForm = () => {
       };
       console.log("12");
       const response = await axios.post(
-        "http://192.168.0.101:8000/api/counselling",
+        "http://192.168.0.105:8000/api/counselling",
         data
       );
       if (response.data.success) {
         setVisible(true);
-        setVisibleText(
-          "Your counselling form has been submitted successfully, you will be contacted soon"
-        );
+        setVisibleText("Your counselling form has been submitted successfully, you will be contacted soon");
         setName("");
         setEmail("");
         setLocation("");

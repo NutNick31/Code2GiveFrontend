@@ -22,18 +22,18 @@ const Login = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post("http://192.168.0.101:8000/api/auth/login/", {
-        username,
-        password,
-      });
-    console.log(res.data)
-      if (res.data.success) {
-        console.log(res.data.user);
-        await AsyncStorage.setItem("user", JSON.stringify(res.data.user));
+    //   const res = await axios.post("http://192.168.0.105:8000/api/auth/login/", {
+    //     username,
+    //     password,
+    //   });
+    // console.log(res.data)
+    //   if (res.data.success) {
+    //     console.log(res.data.user);
+    //     await AsyncStorage.setItem("user", JSON.stringify(res.data.user));
         navigation.navigate("tnc");
-      } else {
-        alert(res.data.message);
-      }
+      // } else {
+      //   alert(res.data.message);
+      // }
     } catch (error) {
       console.log("1", error);
     }

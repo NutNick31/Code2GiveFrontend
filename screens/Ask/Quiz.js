@@ -58,9 +58,9 @@ const Quiz = () => {
   }, []);
   const handlePress = async () => {
     if (questionNumber + 1 === questionList.length) {
-      const username = user.username
-      const res = await axios.post("http://192.168.0.101:8000/api/qna/createquestionanswer", {username, answers: answerList})
-      console.log(res.data)
+      // const username = user.username
+      // const res = await axios.post("http://192.168.0.105:8000/api/qna/createquestionanswer", {username, answers: answerList})
+      // console.log(res.data)
       navigation.navigate("AddictionChoice");
       console.log(answerList);
     } else {

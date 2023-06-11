@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     // paddingVertical: 30,
   },
   scrollViewStyle: {
-    height: height*0.67,
+    height: height*0.62,
     // alignItems: 'center'
     // marginBottom: 20,
   },

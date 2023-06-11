@@ -38,9 +38,11 @@ import {
     // console.log(answerList.length);
     const handleSubmit = async () => {
       if (questionNumber + 1 === questionList.length) {
-        const res = await axios.post("http://192.168.0.101:8000/api/mlAlgo/", {type: "alcohol", data: answerList})
-        console.log(res.data.message)
-        navigation.navigate("Results", { result: res.data.message });
+        console.log(1)
+        // const res = await axios.post("http://192.168.0.105:8000/api/mlAlgo/", {type: "alcohol", data: answerList})
+        // console.log(res.data.message)
+        // navigation.navigate("Results", { result: res.data.message });
+        navigation.navigate("Results", { result: "Sample Result" });
         console.log(answerList);
       } else {
         if(questionList[questionNumber].question_type==='mcq')answerList[questionNumber] = selectedAnswer;

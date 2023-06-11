@@ -53,7 +53,7 @@ const UserLocation = () => {
       const data = { userid, latitude, longitude, college };
       console.log(data);
       const res = await axios.post(
-        "http://192.168.0.101:8000/api/location/registerlocation/",
+        "http://192.168..0.105:8000/api/location/registerlocation/",
         data
       );
       console.log("response", res.data);

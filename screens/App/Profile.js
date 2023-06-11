@@ -17,8 +17,8 @@ const Profile = () => {
   }, []);
 
   const handleLogout = async () => {
-    await AsyncStorage.removeItem("user");
-    setUser({})
+    // await AsyncStorage.removeItem("user");
+    // setUser({})
     navigation.navigate("Login");
   }
   return (
@@ -26,19 +26,23 @@ const Profile = () => {
       <Text style={{fontSize: 28, fontWeight: 500}}>Profile</Text>
       <View style={styles.info}>
         <Text>Username</Text>
-        <Text>{user.username}</Text>
+        {/* <Text>{user.username}</Text> */}
+        <Text>BREADS</Text>
       </View>
       <View style={styles.info}>
         <Text>Email</Text>
-        <Text>{user.email}</Text>
+        {/* <Text>{user.email}</Text> */}
+        <Text>BREADS@morganstanely.com</Text>
       </View>
       <View style={styles.info}>
         <Text>Location</Text>
-        <Text>{user.email}</Text>
+        {/* <Text>{user.email}</Text> */}
+        <Text>Bangalore</Text>
       </View>
       <View style={styles.info}>
         <Text>College</Text>
-        <Text>{user.email}</Text>
+        {/* <Text>{user.email}</Text> */}
+        <Text>NA</Text>
       </View>
       <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
         <Text>Logout</Text>
