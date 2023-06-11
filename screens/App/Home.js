@@ -21,14 +21,17 @@ const data = [
   {
     id: 1,
     src: { uri: "../assets/images/BREADS1.jpg" },
+    story: "Kotresh is a young boy from the Davangere district of Karnataka. His family and village were severely affected by the droughts specific to the area, which destroyed all of their livelihood options."
   },
   {
     id: 2,
     src: { uri: "../assets/images/BREADS1.jpg" },
+    story: "Eramma, a motivated 15-year-old girl, comes from Dhonambali at Deodurga, Raichur, where the malaise of high dropout rates, child marriage and devadasi still persist. She is the president of the Child Rights Club formed under the CREAM project in the local public high school."
   },
   {
     id: 3,
     src: { uri: "../assets/images/BREADS1.jpg" },
+    story: "Yasmeen was born in a poor family in the village of Martur. She is the eldest in the family and has four younger siblings. The financial and poor economic conditions at home forced her to stop going to school at an early stage though she aimed and dreamed of pursuing higher education."
   },
 ];
 
@@ -100,7 +103,7 @@ const Home = () => {
             horizontal
             data={data}
             keyExtractor={(item) => item.id}
-            renderItem={({ item }) => <CarouselCard2 />}
+            renderItem={({ item }) => <CarouselCard2 story={item.story} />}
           />
         </ScrollView>
       </LinearGradient>

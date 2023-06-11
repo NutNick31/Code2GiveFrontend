@@ -37,4 +37,19 @@ export const data = [
     answer:
       "Controlling addiction requires personal commitment, professional support, and the cultivation of healthy coping mechanisms to regain control and pursue a fulfilling life free from the grips of addiction.",
   },
+  {
+    question: "suggest me some medicines to control addiction",
+    answer:
+      "I am sorry but I am not built to suggest medicines. Please consult a doctor for the same.",
+  },
+  {
+    question: "what is breads bangalore",
+    answer:
+      "BREADS - Bangalore Rural Educational and Development Society is the Development Organization of the Salesian Province of Bangalore. They assist and promote the development activities of NGOs, particularly the Don Bosco partners in Karnataka and Kerala. They are a part of an international network of Don Bosco organizations working in over 130 countries across the globe.",
+  },
+  {
+    question: "guide me through the app",
+    answer:
+      "You can ",
+  },
 ];

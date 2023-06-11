@@ -9,10 +9,10 @@ import React from "react";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 import { LinearGradient } from "expo-linear-gradient";
-import { useNavigation } from "@react-navigation/native"; 
+import { useNavigation } from "@react-navigation/native";
 
 const TermsAndCondition = () => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View
@@ -24,8 +24,8 @@ const TermsAndCondition = () => {
           width: 0.8 * width,
         }}
       >
-        <Text style={{ fontSize: 30, fontWeight: 500, color: '#E15715' }}>
-          BREADS Terms and conditions
+        <Text style={{ fontSize: 30, fontWeight: 500, color: "#E15715" }}>
+          BREADS Disclaimer
         </Text>
       </View>
       <View style={{ alignItems: "center" }}>
@@ -48,21 +48,12 @@ const TermsAndCondition = () => {
             marginVertical: height * 0.012,
           }}
         >
-          • User Consent: By using this application, you acknowledge and agree
-          to the terms and conditions outlined herein.
-        </Text>
-        <Text
-          style={{
-            fontWeight: 400,
-            // borderWidth: 1,
-            width: width * 0.8,
-            marginVertical: height * 0.012,
-          }}
-        >
-          • Confidentiality of User Information: We are committed to maintaining
-          the privacy and confidentiality of all user information collected
-          during the use of this application. Your personal data, including your
-          identity, will not be shared with any third parties without your
+          •{" "}
+          <Text style={{ fontWeight: 500 }}>
+            Confidentiality of User Information
+          </Text>
+          : We prioritize user privacy and confidentiality. Your personal
+          information will not be shared with third parties without your
           explicit consent.
         </Text>
         <Text
@@ -73,11 +64,9 @@ const TermsAndCondition = () => {
             marginVertical: height * 0.012,
           }}
         >
-          • Data Collection: In order to provide personalized support and
-          assistance, the application may collect and store certain user
-          information, such as addiction type, recovery progress, and user
-          preferences. This data will be used solely for the purpose of
-          improving the application and tailoring it to individual needs.
+          • <Text style={{ fontWeight: 500 }}>Data Collection</Text>: The app
+          may collect user information (addiction type, recovery progress,
+          preferences) to personalize support.
         </Text>
         <Text
           style={{
@@ -87,10 +76,8 @@ const TermsAndCondition = () => {
             marginVertical: height * 0.012,
           }}
         >
-          • Data Security: We employ industry-standard security measures to
-          protect user data against unauthorized access, loss, or alteration.
-          However, it is important to note that no method of data transmission
-          or storage can be guaranteed as completely secure.
+          • <Text style={{fontWeight: 500}}>Data Security</Text>: User privacy is a priority. We employ security
+          measures, but complete data security cannot be guaranteed.
         </Text>
         <TouchableOpacity
           onPress={() => navigation.navigate("Location")}
@@ -106,7 +93,7 @@ const TermsAndCondition = () => {
             elevation: 10,
           }}
         >
-          <Text style={{color: '#fff'}}>Accept</Text>
+          <Text style={{ color: "#fff" }}>Next</Text>
         </TouchableOpacity>
       </View>
     </View>

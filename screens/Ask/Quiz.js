@@ -28,13 +28,6 @@ var answerList = [
   "NA",
   "NA",
   "NA",
-  "NA",
-  "NA",
-  "NA",
-  "NA",
-  "NA",
-  "NA",
-  "NA",
 ];
 
 const Quiz = () => {
@@ -58,9 +51,9 @@ const Quiz = () => {
   }, []);
   const handlePress = async () => {
     if (questionNumber + 1 === questionList.length) {
-      // const username = user.username
-      // const res = await axios.post("http://192.168.0.105:8000/api/qna/createquestionanswer", {username, answers: answerList})
-      // console.log(res.data)
+      const username = user.username
+      const res = await axios.post("http://192.168.0.105:8000/api/qna/createquestionanswer", {username, answers: answerList})
+      console.log(res.data)
       navigation.navigate("AddictionChoice");
       console.log(answerList);
     } else {
@@ -265,6 +258,22 @@ const Quiz = () => {
             <Text style={{ fontSize: 20 }}>Previous</Text>
           </TouchableOpacity>
         )}
+        <TouchableOpacity
+            style={{
+              backgroundColor: "lightblue",
+              width: 0.8 * width,
+              alignItems: "center",
+              paddingVertical: 10,
+              marginVertical: 10,
+              elevation: 10,
+              borderRadius: 10,
+            }}
+            onPress={() => {
+              navigation.navigate("AddictionChoice");
+            }}
+          >
+            <Text style={{ fontSize: 20 }}>Skip to End</Text>
+          </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

@@ -11,8 +11,8 @@ const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AntDesign } from '@expo/vector-icons'; 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AntDesign } from "@expo/vector-icons";
 
 const Login = () => {
   const navigation = useNavigation();
@@ -22,18 +22,18 @@ const Login = () => {
 
   const handleSubmit = async () => {
     try {
-    //   const res = await axios.post("http://192.168.0.105:8000/api/auth/login/", {
-    //     username,
-    //     password,
-    //   });
-    // console.log(res.data)
-    //   if (res.data.success) {
-    //     console.log(res.data.user);
-    //     await AsyncStorage.setItem("user", JSON.stringify(res.data.user));
-        navigation.navigate("tnc");
-      // } else {
-      //   alert(res.data.message);
-      // }
+        const res = await axios.post("http://192.168.0.105:8000/api/auth/login/", {
+          username,
+          password,
+        });
+      console.log(res.data)
+        if (res.data.success) {
+          console.log(res.data.user);
+          await AsyncStorage.setItem("user", JSON.stringify(res.data.user));
+      navigation.navigate("tnc");
+      } else {
+        alert(res.data.message);
+      }
     } catch (error) {
       console.log("1", error);
     }
@@ -55,11 +55,17 @@ const Login = () => {
         onChangeText={(text) => setPassword(text)}
       />
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={{marginHorizontal: width*0.02}}>Let's Go</Text>
+        <Text style={{ marginHorizontal: width * 0.02 }}>Let's Go</Text>
         <AntDesign name="login" size={24} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity style={{marginVertical: height*0.02}} onPress={() => navigation.navigate("Register")}>
-        <Text>Don't have an account? Register</Text>
+      <TouchableOpacity
+        style={{ marginVertical: height * 0.02 }}
+        onPress={() => navigation.navigate("Register")}
+      >
+        <Text>
+          Don't have an account?{" "}
+          <Text style={{ color: "blue", fontWeight: 500 }}>Register</Text>
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -91,8 +97,8 @@ const styles = StyleSheet.create({
     marginVertical: 0.01 * height,
     borderRadius: 10,
     elevation: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

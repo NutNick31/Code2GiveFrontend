@@ -12,7 +12,7 @@ const height = Dimensions.get("window").height;
 import { useNavigation } from "@react-navigation/native";
 import CustomeDropDown from "../../components/CustomeDropDown";
 import axios from "axios";
-import { FontAwesome } from '@expo/vector-icons'; 
+import { FontAwesome } from "@expo/vector-icons";
 
 // const data2 = [
 //   { key: "1", value: "IIT Kharagpur" },
@@ -33,14 +33,14 @@ const Register = () => {
 
   const handleSubmit = async () => {
     try {
-      // const {username, email, password} = user;
-      // console.log({username, email, password, location, college})
-      // const body = JSON.stringify(user)
-      // setUser(JSON.stringify({ username, email, password }));
+      const {username, email, password} = user;
+      console.log({username, email, password, location, college})
+      const body = JSON.stringify(user)
+      setUser(JSON.stringify({ username, email, password }));
       setUser({ username, email, password });
       console.log(`1`);
       const res = await axios.post(
-        "http://192.168.0.101:8000/api/auth/register/",
+        "http://192.168.0.105:8000/api/auth/register/",
         user
       );
       // const res = await axios.get("api/mlalgo");
@@ -94,11 +94,17 @@ const Register = () => {
         string={"Your Location"}
       /> */}
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={{marginHorizontal: width*0.02}}>Let's Go</Text>
+        <Text style={{ marginHorizontal: width * 0.02 }}>Let's Go</Text>
         <FontAwesome name="registered" size={24} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity style={{marginVertical: height*0.02}} onPress={() => navigation.navigate("Login")}>
-        <Text>Already Registered? Login</Text>
+      <TouchableOpacity
+        style={{ marginVertical: height * 0.02 }}
+        onPress={() => navigation.navigate("Login")}
+      >
+        <Text>
+          Already Registered?{" "}
+          <Text style={{ color: "blue", fontWeight: 500 }}>Login</Text>
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -129,8 +135,8 @@ const styles = StyleSheet.create({
     paddingVertical: 0.015 * height,
     marginVertical: 0.01 * height,
     borderRadius: 10,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

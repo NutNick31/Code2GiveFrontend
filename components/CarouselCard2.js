@@ -3,14 +3,12 @@ import React from "react";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 
-const CarouselCard2 = () => {
+const CarouselCard2 = ({story}) => {
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 20, fontWeight: 500 }}>Success Stories</Text>
       <Text style={{ fontSize: 15, fontWeight: 300 }}>
-        Kotresh is a young boy from the Davangere district of Karnataka. His
-        family and village were severely affected by the droughts specific to
-        the area, which destroyed all of their livelihood options. <Text style={{fontWeight: 500}}>(Read more...)</Text>
+         {story}<Text style={{fontWeight: 500}}>(Read more...)</Text>
       </Text>
     </View>
   );

@@ -64,7 +64,7 @@ const Results = (props) => {
           elevation: 10,
         }}
       >
-        <Text>Try our under development chatbot</Text>
+        <Text style={{fontWeight: 500}}>DREAM Buddy</Text>
       </TouchableOpacity>
       <View style={{marginVertical: 10,}}>
         <Foundation name="results" size={100} color="black" />

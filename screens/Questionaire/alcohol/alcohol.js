@@ -39,10 +39,10 @@ import {
     const handleSubmit = async () => {
       if (questionNumber + 1 === questionList.length) {
         console.log(1)
-        // const res = await axios.post("http://192.168.0.105:8000/api/mlAlgo/", {type: "alcohol", data: answerList})
-        // console.log(res.data.message)
-        // navigation.navigate("Results", { result: res.data.message });
-        navigation.navigate("Results", { result: "Sample Result" });
+        const res = await axios.post("http://192.168.0.105:8000/api/mlAlgo/", {type: "alcohol", data: answerList})
+        console.log(res.data.message)
+        navigation.navigate("Results", { result: res.data.message });
+        // navigation.navigate("Results", { result: "Sample Result" });
         console.log(answerList);
       } else {
         if(questionList[questionNumber].question_type==='mcq')answerList[questionNumber] = selectedAnswer;
@@ -226,9 +226,9 @@ import {
               {questionNumber + 1 === questionList.length ? "Submit" : "Next"}
             </Text>
           </TouchableOpacity>
-          {/* {questionNumber!==0 && <TouchableOpacity
+          {questionNumber!==0 && <TouchableOpacity
             style={{
-              backgroundColor: "lightblue",
+              backgroundColor: "#E15715",
               width: 0.8 * width,
               alignItems: "center",
               paddingVertical: 10,
@@ -243,7 +243,7 @@ import {
             <Text style={{ fontSize: 20 }}>
               Previous
             </Text>
-          </TouchableOpacity>} */}
+          </TouchableOpacity>}
         </View>
       </SafeAreaView>
     );

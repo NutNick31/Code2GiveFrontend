@@ -4,6 +4,7 @@ import {
   Text,
   View,
   Dimensions,
+  Image,
 } from "react-native";
 import React from "react";
 const width = Dimensions.get("window").width;
@@ -26,27 +27,30 @@ const Onboading = () => {
         pages={[
           {
             backgroundColor: "#D15715",
+            image: <Image source={require('../../assets/images/DREAMLOGO-removebg-preview.png')} style={{width: 0.8*width, height: 0.18*height}} />,
             title: "BREADS Bangalore",
-            subtitle: "Welcome to our application",
+            subtitle: "Believe you can and you're halfway there",
           },
           {
             backgroundColor: "#D15715",
+            image: <Image source={require('../../assets/images/DREAMLOGO-removebg-preview.png')} style={{width: 0.8*width, height: 0.18*height}} />,
             title: "BREADS Bangalore",
-            subtitle: "If you can think it, you are half the way",
+            subtitle: "Your greatest strength lies in your indomitable will",
           },
           {
             backgroundColor: "#D15715",
+            image: <Image source={require('../../assets/images/DREAMLOGO-removebg-preview.png')} style={{width: 0.8*width, height: 0.18*height}} />,
             title: "BREADS Bangalore",
             subtitle:
               "You are stronger than you think, you have the power to change your life.",
           },
-          // ...
         ]}
+        // imageContainerStyles={{ width: width*0.8, height: 0.2*height, alignSelf: "center" }}
         onSkip={() => {
-          navigation.navigate("Register");
+          navigation.navigate("Login");
         }}
         onDone={() => {
-          navigation.navigate("Register");
+          navigation.navigate("Login");
         }}
       />
     </View>

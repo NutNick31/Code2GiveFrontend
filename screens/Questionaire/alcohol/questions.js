@@ -13,7 +13,7 @@ const InitialQuestionsList = [
     },
     {
         id: '3',
-        question: 'Since how long you are being into this?',
+        question: 'How long ago you realised you had substance use disorder?',
         question_options: '<6m, 6m-1y, 1y-3y, >3y',
         question_type: 'mcq',
     },

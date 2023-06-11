@@ -46,14 +46,14 @@ const UserLocation = () => {
       const user1 = await AsyncStorage.getItem("user");
       setUser(JSON.parse(user1));
       console.log(user);
-      const userid = user.username;
+      const userid = user.name;
       const latitude = mapLocation.latitude;
       const longitude = mapLocation.longitude;
       console.log(mapLocation);
       const data = { userid, latitude, longitude, college };
       console.log(data);
       const res = await axios.post(
-        "http://192.168..0.105:8000/api/location/registerlocation/",
+        "http://192.168.0.105:8000/api/location/registerlocation/",
         data
       );
       console.log("response", res.data);
@@ -84,7 +84,7 @@ const UserLocation = () => {
           elevation: 10,
         }}
       >
-        <Text style={{color: '#fff'}}>Allow Location Permission</Text>
+        <Text style={{ color: "#fff" }}>Allow Location Permission</Text>
       </TouchableOpacity>
       {/* <Button title="Allow Location Permission" onPress={getLocation} /> */}
       <View style={styles.section}>
@@ -124,7 +124,7 @@ const UserLocation = () => {
           elevation: 10,
         }}
       >
-        <Text style={{color: "#fff", fontWeight: 500}}>Submit</Text>
+        <Text style={{ color: "#fff", fontWeight: 500 }}>Submit</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
@@ -142,7 +142,7 @@ const UserLocation = () => {
           elevation: 10,
         }}
       >
-        <Text style={{color: "#fff", fontWeight: 500}}>Skip</Text>
+        <Text style={{ color: "#fff", fontWeight: 500 }}>Skip</Text>
       </TouchableOpacity>
       {/* <Button title="Submit" onPress={handleSubmit} />
       <Button title="Skip" onPress={()=>{navigation.navigate('Quiz')}}/> */}

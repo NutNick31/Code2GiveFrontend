@@ -28,7 +28,7 @@ const ChatBot = () => {
 
     chats = [
       ...chats,
-      { msg: "Didn't recognise tour question", incomingMsg: true },
+      { msg: "I am a chatbot and still under development, maybe I can help you with something else 😊", incomingMsg: true },
     ];
     setChatList([...chats].reverse());
     return;
